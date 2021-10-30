@@ -24,10 +24,16 @@
     }
   },
   "dependencies": {
+    "axios": "^0.24.0",
+    "cron": "^1.8.2",
     "electron-is-dev": "^1.0.1",
+    "moment": "^2.29.1",
+    "node-cron": "^3.0.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react-player": "^2.9.0",
+    "react-scripts": "2.1.5",
+    "ytdl-core": "^4.9.1"
   },
   "homepage": "./",
   "main": "public/electron.js",
@@ -36,7 +42,7 @@
     "build": "rescripts build",
     "test": "rescripts test",
     "eject": "react-scripts eject",
-    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-dev": "concurrently \"BROWSER=none npm run start\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
     "electron-pack": "build -mw"
