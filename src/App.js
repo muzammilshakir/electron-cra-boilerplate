@@ -32,6 +32,13 @@ class App extends Component {
   }
   componentDidMount() {
     this.gettingData() ;
+    cron.schedule(`*/1 * * * *`, () => {
+      const pulseStatus = (axios.post(API_URL + 'pulses', {
+        'isAlive': true,
+        
+      })).data ;
+      console.log("Pulse Sent: ", pulseStatus) ;
+    });
     // download('https://www.youtube.com/watch?v=Wab1nHSrcx8&ab_channel=FAST-NU_Official', "FAST-AD") ;
   }
   gettingData = async() => {
